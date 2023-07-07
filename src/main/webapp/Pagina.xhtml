@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+
+
+<h:form id="frm">
+
+
+
+<h:panelGrid columns="2">
+
+<f:facet name="header">criação de conta</f:facet>
+
+<h:outputLabel>Nome:</h:outputLabel>
+<h:panelGroup>
+<h:inputText value="#{listaCadastro.cadastro.nome}" size="50" required = "true" id ="nomeIn"></h:inputText>
+<h:message for="nomeIn" showSummary="true" showDetail="false"></h:message>
+</h:panelGroup>
+
+<h:outputLabel>Senha:</h:outputLabel>
+<h:panelGroup>
+<h:inputSecret value="#{listaCadastro.cadastro.senha}" size="50" required = "true" id ="senhaIn">
+<f:validateLength minimum="5" maximum="10"></f:validateLength>
+</h:inputSecret>
+<h:message for="senhaIn" showSummary="true" showDetail="false"></h:message>
+</h:panelGroup>
+
+
+
+<h:outputLabel>Email:</h:outputLabel>
+<h:panelGroup>
+<h:inputText value="#{listaCadastro.cadastro.email}" size="50" required = "true" id ="emailIn" validator="com.validator.EmailV"></h:inputText>
+<h:message for="emailIn" showSummary="true" showDetail="false"></h:message>
+</h:panelGroup>
+
+<h:outputLabel>Telefone/Celular:</h:outputLabel>
+<h:panelGroup>
+<h:inputText value="#{listaCadastro.cadastro.contato}" size="50" required = "true" id ="contatoIn">
+<f:validateLength minimum="8" maximum="9"></f:validateLength>
+<f:convertNumber></f:convertNumber>
+</h:inputText>
+<h:message for="contatoIn" showSummary="true" showDetail="false"></h:message>
+</h:panelGroup>
+
+<h:commandLink value="visualizar" action = "Lista" immediate = "true"></h:commandLink>
+<h:commandButton value="incluir" action = "#{listaCadastro.incluir}" ></h:commandButton>
+
+
+
+</h:panelGrid>
+
+</h:form>
+
+
+
+</h:body>
+</html>
